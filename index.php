@@ -1,6 +1,6 @@
 <?php 
-include 'php/head.php';
 $_POST['pagina'] = "index"; 
+include 'php/head.php';
 ?>
 </head>
 <body>

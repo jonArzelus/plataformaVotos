@@ -1,6 +1,6 @@
 <?php echo $_POST['pagina']; ?>
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid text-center">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Plataforma de votos</a>
     </div>
@@ -27,21 +27,23 @@
      	<?php } ?>
     </ul>
     <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']!="GUEST") { ?>
-    <ul class="nav navbar-nav" style="float:right">
+    <ul class="nav navbar-nav navbar-right">
+    	<li><a href="#" style="pointer-events: none;">Logueado como <strong><?php echo $_SESSION['usuario']; ?></strong></a></li>
     	<li><a href="logout.php">Logout</a></li>
     </ul>
-    <p class="navbar-text" style="float:right">Logueado como <strong><?php echo $_SESSION['usuario']; ?></strong></p>
     <?php } else { ?>
     <?php if($_POST['pagina']=="login") { ?>
-     	<ul class="nav navbar-nav" style="float:right">
+     	<ul class="nav navbar-nav navbar-right">
+     		<li><a href="#" style="pointer-events: none;">Sin iniciar sesión</a></li>
     		<li class="active"><a href="login.php">Login</a></li>
     	</ul>
      	<?php } else { ?>
-     	<ul class="nav navbar-nav" style="float:right">
+     	<ul class="nav navbar-nav navbar-right">
+     		<li><a href="#" style="pointer-events: none;">Sin iniciar sesión</a></li>
     		<li><a href="login.php">Login</a></li>
     	</ul>
      	<?php } ?>
-    <p class="navbar-text" style="float:right">Sin iniciar sesión</p>
+    <p class="navbar-text"></p>
     <?php } ?>
   </div>
 </nav>
