@@ -1,4 +1,4 @@
-<?php include '/../db/dbOpen.php'; session_start(); ?>
+<?php include(dirname(__FILE__).'/../db/dbOpen.php'); session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <html>
