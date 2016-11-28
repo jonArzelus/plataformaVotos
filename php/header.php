@@ -1,4 +1,4 @@
-<?php echo $_POST['pagina']; ?>
+<?php echo $_POST['pagina'] . " - " . $_SESSION['usuario']; ?>
 <nav class="navbar navbar-default">
   <div class="container-fluid text-center">
     <div class="navbar-header">
@@ -28,8 +28,8 @@
     </ul>
     <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']!="GUEST") { ?>
     <ul class="nav navbar-nav navbar-right">
-    	<li><a href="#" style="pointer-events: none;">Logueado como <strong><?php echo $_SESSION['usuario']; ?></strong></a></li>
-    	<li><a href="logout.php">Logout</a></li>
+    	<li><?php echo ('<a href="#" data-toggle="popover" data-placement="bottom" title="Datos de la sesión" data-content="Sesión iniciada en' . "\r\n" . $_SESSION['conexion'] . "\r\n" . 'IP actual' . "\r\n" . $_SESSION['ip'] . "\r\n" . 'Última conexión' . "\r\n" . $_SESSION['ultimaconexion'] . "\r\n" . 'Última IP' . "\r\n" . $_SESSION['ultimaip'] . "\r\n" . '">Logueado como <strong>' . $_SESSION['usuario'] . '</strong></a>'); ?></li>
+    	<li><a href="php/logout.php">Logout</a></li>
     </ul>
     <?php } else { ?>
     <?php if($_POST['pagina']=="login") { ?>

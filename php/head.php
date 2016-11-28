@@ -18,12 +18,19 @@
 	<link rel="icon" type="image/png" href="img/logo.png">
     <link rel='stylesheet' type='text/css' href='css/bootstrap.css' />
     <link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css' />
-    <link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css' />
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/npm.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <style>
     * {
     	border:none;
     }
     </style>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
 <?php
-//$_SESSION['usuario'] = "GUEST";
+//$_SESSION['usuario'] = "GUsEST";
 ?>
