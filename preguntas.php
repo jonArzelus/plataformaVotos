@@ -6,9 +6,9 @@ include 'php/head.php';
 <body>
 <?php include 'php/header.php'; ?>
 <?php
-$favor = 12;
-$contra = 9;
-$abstencion = 3;
+$favor = 32;
+$contra = 18;
+$abstencion = 2;
 $nulo = 1;
 $total = $favor+$contra+$abstencion+$nulo;
 ?>
@@ -20,7 +20,7 @@ $total = $favor+$contra+$abstencion+$nulo;
 				<h4>¿Necesitamos una plataforma de votos para RITSI? <span class="label label-success">Aprobado</span></h4>
 				<div class="text-left">
 					<p>La pregunta viene a ra&iacute;z de que en las asambleas se pierde bastante tiempo con el voto secreto y se ha decidido llevar a votación, cómo no, con voto secreto.</p>
-
+					<p>Orígen: JD - Lugar: EHU - Fecha: 2016/11/28 - Hora: 12:55:00</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-md-push-1 panel panel-default text-left">
