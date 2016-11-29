@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2016 a las 22:19:04
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 7.0.13
+-- Tiempo de generación: 29-11-2016 a las 23:39:12
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,7 +41,8 @@ CREATE TABLE `preguntas` (
 --
 
 INSERT INTO `preguntas` (`ID`, `Pregunta`, `Descripcion`, `Origen`, `Lugar`, `Fecha`, `Hora`) VALUES
-(1, '¿Necesita RITSI una plataforma de votos?', 'La pregunta viene a ra&iacute;z de que en las asambleas se pierde bastante tiempo con el voto secreto y se ha decidido llevar a votaci&oacute;n, c&oacute;mo no, con voto secreto', 'prueba', 'local', '2016-11-25', '12:00:00');
+(1, '&iquest;Necesita RITSI una plataforma de votos?', 'La pregunta viene a ra&iacute;z de que en las asambleas se pierde bastante tiempo con el voto secreto y se ha decidido llevar a votaci&oacute;n, c&oacute;mo no, con voto secreto.', 'prueba', 'local', '2016-11-25', '12:00:00'),
+(2, 'Prueba', 'Sin descripci&oacute;n', 'prueba', 'prueba', '2016-11-30', '12:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,6 +76,7 @@ INSERT INTO `preguntasconfig` (`ID`, `universidadID`, `preguntaID`, `fechaPregun
 CREATE TABLE `resultadosfcan` (
   `Clave` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `preguntaID` int(11) NOT NULL,
+  `universidadID` int(11) NOT NULL,
   `Voto1` set('FAV','CON','ABS','NUL') COLLATE latin1_spanish_ci NOT NULL,
   `Voto2` set('FAV','CON','ABS','NUL') COLLATE latin1_spanish_ci NOT NULL,
   `Voto3` set('FAV','CON','ABS','NUL') COLLATE latin1_spanish_ci NOT NULL,
@@ -82,6 +84,13 @@ CREATE TABLE `resultadosfcan` (
   `Hora` time NOT NULL,
   `IP` varchar(255) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `resultadosfcan`
+--
+
+INSERT INTO `resultadosfcan` (`Clave`, `preguntaID`, `universidadID`, `Voto1`, `Voto2`, `Voto3`, `Fecha`, `Hora`, `IP`) VALUES
+('', 1, 1, 'FAV', 'FAV', 'FAV', '2016-11-29', '23:00:00', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -97,6 +106,7 @@ CREATE TABLE `usuarios` (
   `Usuario` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `Pass` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `Imagen` varchar(255) COLLATE latin1_spanish_ci NOT NULL DEFAULT 'uni/uni_default.jpg',
+  `linkUniversidad` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `ultimaConexion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultimaIP` varchar(255) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -105,8 +115,8 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `Imagen`, `ultimaConexion`, `ultimaIP`) VALUES
-(1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', '', '2016-11-29 00:12:21', '::1');
+INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `Imagen`, `linkUniversidad`, `ultimaConexion`, `ultimaIP`) VALUES
+(1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', 'uni/uni_ehu.jpg', 'http://www.ehu.eus/eu/web/informatika-fakultatea', '2016-11-29 21:37:57', '::1');
 
 --
 -- Índices para tablas volcadas
@@ -131,7 +141,8 @@ ALTER TABLE `preguntasconfig`
 --
 ALTER TABLE `resultadosfcan`
   ADD PRIMARY KEY (`Clave`),
-  ADD KEY `preguntaID` (`preguntaID`);
+  ADD KEY `preguntaID` (`preguntaID`),
+  ADD KEY `universidadID` (`universidadID`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -148,7 +159,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `preguntasconfig`
 --
@@ -174,7 +185,8 @@ ALTER TABLE `preguntasconfig`
 -- Filtros para la tabla `resultadosfcan`
 --
 ALTER TABLE `resultadosfcan`
-  ADD CONSTRAINT `resultadosfcan_ibfk_1` FOREIGN KEY (`preguntaID`) REFERENCES `preguntas` (`ID`);
+  ADD CONSTRAINT `resultadosfcan_ibfk_1` FOREIGN KEY (`preguntaID`) REFERENCES `preguntasconfig` (`preguntaID`),
+  ADD CONSTRAINT `resultadosfcan_ibfk_2` FOREIGN KEY (`universidadID`) REFERENCES `preguntasconfig` (`universidadID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
