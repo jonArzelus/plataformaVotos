@@ -6,8 +6,9 @@ include 'php/head.php';
 <body>
 <?php include 'php/header.php'; ?>
 <div class="container-fluid">
-	<div class="text-center" style="height:80%;">
-		<h1>Vota</h1>
+	<div class="text-center">
+		<h1>Vota</h1><br><br>
+		
 	</div>
 </div>
 <?php include 'php/footer.php'; ?>

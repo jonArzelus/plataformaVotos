@@ -4,6 +4,19 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Plataforma de votos</a>
     </div>
+    <?php //numero de preguntas
+    $sql = "SELECT ID FROM preguntas";
+    $result = $db->query($sql);
+    $numActivas = mysqli_num_rows($result);
+    if(isset($_SESSION['universidadid'])) {
+        $id = $_SESSION['universidadid'];
+        $sql = "SELECT ID FROM preguntasconfig WHERE universidadID='$id'";
+        $result = $db->query($sql);
+        $numUni = mysqli_num_rows($result);
+    } else {
+        $numUni = 0;
+    }
+    ?>
     <ul class="nav navbar-nav">
     	<?php if($_POST['pagina']=="index") { ?>
      	<li class="active"><a href="index.php">Inicio</a></li>
@@ -11,14 +24,14 @@
      	<li><a href="index.php">Inicio</a></li>
      	<?php } ?>
      	<?php if($_POST['pagina']=="preguntas") { ?>
-     	<li class="active"><a href="preguntas.php">Preguntas activas</a></li>
+     	<li class="active"><a href="preguntas.php">Preguntas activas <span class="badge"><?php echo $numActivas; ?></span></a></li>
      	<?php } else { ?>
-     	<li><a href="preguntas.php">Preguntas activas</a></li>
+     	<li><a href="preguntas.php">Preguntas activas <span class="badge"><?php echo $numActivas; ?></span></a></li>
      	<?php } ?>
      	<?php if($_POST['pagina']=="vota") { ?>
-     	<li class="active"><a href="vota.php">Vota</a></li>
+     	<li class="active"><a href="vota.php">Vota <span class="badge"><?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']!="GUEST") echo $numUni; ?></span></a></li>
      	<?php } else { ?>
-     	<li><a href="vota.php">Vota</a></li>
+     	<li><a href="vota.php">Vota <span class="badge"><?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']!="GUEST") echo $numUni; ?></span></a></li>
      	<?php } ?>
      	<?php if($_POST['pagina']=="acerca") { ?>
      	<li class="active"><a href="acerca.php">Acerca de</a></li>

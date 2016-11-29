@@ -25,7 +25,10 @@ if(isset($_POST['user'], $_POST['pwd'])) {
 			$_SESSION['conexion'] = $conexion;
 			$_SESSION['ultimaip'] = $datos['ultimaIP'];
 			$_SESSION['ip'] = $ip;
+			$_SESSION['universidadid'] = $datos['ID'];
 			//datos de la nueva sesión
+			$sql = "UPDATE usuarios SET ultimaConexion='$conexion', ultimaIP='$ip' WHERE Usuario='$user'";
+			$db->query($sql);
 		}
 	} else {
 		$estado = "sin_iniciar";
