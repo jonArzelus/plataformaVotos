@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2016 a las 23:39:12
+-- Tiempo de generación: 30-11-2016 a las 00:49:23
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -65,7 +65,9 @@ CREATE TABLE `preguntasconfig` (
 --
 
 INSERT INTO `preguntasconfig` (`ID`, `universidadID`, `preguntaID`, `fechaPregunta`, `horaComienzo`, `horaFin`, `disponible`) VALUES
-(1, 1, 1, '2016-11-25', '12:00:00', '12:15:00', 'NO');
+(1, 1, 1, '2016-11-30', '02:30:00', '02:44:00', 'NO'),
+(2, 2, 1, '2016-11-25', '12:00:00', '12:15:00', 'NO'),
+(3, 3, 1, '2016-11-25', '12:00:00', '12:15:00', 'NO');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ INSERT INTO `preguntasconfig` (`ID`, `universidadID`, `preguntaID`, `fechaPregun
 --
 
 CREATE TABLE `resultadosfcan` (
-  `Clave` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
+  `Clave` int(11) NOT NULL,
   `preguntaID` int(11) NOT NULL,
   `universidadID` int(11) NOT NULL,
   `Voto1` set('FAV','CON','ABS','NUL') COLLATE latin1_spanish_ci NOT NULL,
@@ -90,7 +92,8 @@ CREATE TABLE `resultadosfcan` (
 --
 
 INSERT INTO `resultadosfcan` (`Clave`, `preguntaID`, `universidadID`, `Voto1`, `Voto2`, `Voto3`, `Fecha`, `Hora`, `IP`) VALUES
-('', 1, 1, 'FAV', 'FAV', 'FAV', '2016-11-29', '23:00:00', '127.0.0.1');
+(1, 1, 1, 'CON', 'CON', 'FAV', '2016-11-29', '23:00:00', '127.0.0.1'),
+(2, 1, 2, 'CON', 'ABS', 'ABS', '2016-11-29', '23:00:00', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `Imagen`, `linkUniversidad`, `ultimaConexion`, `ultimaIP`) VALUES
-(1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', 'uni/uni_ehu.jpg', 'http://www.ehu.eus/eu/web/informatika-fakultatea', '2016-11-29 21:37:57', '::1');
+(1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', 'uni/uni_ehu.jpg', 'http://www.ehu.eus/eu/web/informatika-fakultatea', '2016-11-29 21:37:57', '::1'),
+(2, 'UPNA', 'Universidad P&uacute;blica de Navarra - Nafarroako Unibertsitate Publikoa', 'Sin comentario', 'upna', '1', 'uni/uni_upna.jpg', 'https://www.unavarra.es/ets-industrialesytelecos/estudios/grado/grado-en-ingenieria-informatica', '2016-11-29 22:56:46', '127.0.0.1'),
+(3, 'UPV', 'Universitat Politècnica de València', 'Sin comentario', 'upv', '1', 'uni/uni_upv.jpg', 'https://www.upv.es/titulaciones/GII/', '2016-11-29 22:56:46', '127.0.0.1');
 
 --
 -- Índices para tablas volcadas
@@ -164,12 +169,17 @@ ALTER TABLE `preguntas`
 -- AUTO_INCREMENT de la tabla `preguntasconfig`
 --
 ALTER TABLE `preguntasconfig`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `resultadosfcan`
+--
+ALTER TABLE `resultadosfcan`
+  MODIFY `Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
