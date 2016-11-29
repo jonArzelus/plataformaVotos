@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2016 a las 00:04:07
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 29-11-2016 a las 22:19:04
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `preguntas` (
   `ID` int(11) NOT NULL,
   `Pregunta` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
+  `Descripcion` varchar(255) COLLATE latin1_spanish_ci DEFAULT 'Sin descripción',
   `Origen` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `Lugar` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `Fecha` date NOT NULL,
@@ -39,8 +40,8 @@ CREATE TABLE `preguntas` (
 -- Volcado de datos para la tabla `preguntas`
 --
 
-INSERT INTO `preguntas` (`ID`, `Pregunta`, `Origen`, `Lugar`, `Fecha`, `Hora`) VALUES
-(1, '¿Necesita RITSI una plataforma de votos?', 'prueba', 'local', '2016-11-25', '12:00:00');
+INSERT INTO `preguntas` (`ID`, `Pregunta`, `Descripcion`, `Origen`, `Lugar`, `Fecha`, `Hora`) VALUES
+(1, '¿Necesita RITSI una plataforma de votos?', 'La pregunta viene a ra&iacute;z de que en las asambleas se pierde bastante tiempo con el voto secreto y se ha decidido llevar a votaci&oacute;n, c&oacute;mo no, con voto secreto', 'prueba', 'local', '2016-11-25', '12:00:00');
 
 -- --------------------------------------------------------
 
@@ -95,6 +96,7 @@ CREATE TABLE `usuarios` (
   `Comentario` varchar(255) COLLATE latin1_spanish_ci DEFAULT 'Sin comentario',
   `Usuario` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `Pass` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
+  `Imagen` varchar(255) COLLATE latin1_spanish_ci NOT NULL DEFAULT 'uni/uni_default.jpg',
   `ultimaConexion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultimaIP` varchar(255) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -103,8 +105,8 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `ultimaConexion`, `ultimaIP`) VALUES
-(1, 'UPV - EHU', 'Universidad del País Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '12345678', '2016-11-25 16:26:17', '127.0.0.1');
+INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `Imagen`, `ultimaConexion`, `ultimaIP`) VALUES
+(1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', '', '2016-11-29 00:12:21', '::1');
 
 --
 -- Índices para tablas volcadas
