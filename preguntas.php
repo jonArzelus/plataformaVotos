@@ -104,7 +104,7 @@ if($result) {
 			</div>
 		</div>
 		<div class="row">
-			<?php echo('<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#' . $id . '">Resultados de la votación</button>'); ?>
+			<?php if($estado!="nuevo" && $estado!="otro") echo('<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#' . $id . '">Resultados de la votación</button>'); ?>
 			<p></p>
 		</div>
 		<div class="row">

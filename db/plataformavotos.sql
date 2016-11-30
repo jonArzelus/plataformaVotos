@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2016 a las 00:49:23
+-- Tiempo de generación: 30-11-2016 a las 01:07:24
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -120,8 +120,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`ID`, `Siglas`, `Nombre`, `Comentario`, `Usuario`, `Pass`, `Imagen`, `linkUniversidad`, `ultimaConexion`, `ultimaIP`) VALUES
 (1, 'UPV - EHU', 'Universidad del Pa&iacute;s Vasco - Euskal Herriko Unibertsitatea', 'Sin comentario', 'upv_ehu', '1', 'uni/uni_ehu.jpg', 'http://www.ehu.eus/eu/web/informatika-fakultatea', '2016-11-29 21:37:57', '::1'),
-(2, 'UPNA', 'Universidad P&uacute;blica de Navarra - Nafarroako Unibertsitate Publikoa', 'Sin comentario', 'upna', '1', 'uni/uni_upna.jpg', 'https://www.unavarra.es/ets-industrialesytelecos/estudios/grado/grado-en-ingenieria-informatica', '2016-11-29 22:56:46', '127.0.0.1'),
-(3, 'UPV', 'Universitat Politècnica de València', 'Sin comentario', 'upv', '1', 'uni/uni_upv.jpg', 'https://www.upv.es/titulaciones/GII/', '2016-11-29 22:56:46', '127.0.0.1');
+(2, 'UPNA', 'Universidad P&uacute;blica de Navarra - Nafarroako Unibertsitate Publikoa', 'Sin comentario', 'upna', '1', 'uni/uni_upna.jpg', 'https://www.unavarra.es/ets-industrialesytelecos/estudios/grado/grado-en-ingenieria-informatica', '2016-11-29 23:50:26', '::1'),
+(3, 'UPV', 'Universitat Polit&egrave;cnica de Val&egrave;ncia', 'Sin comentario', 'upv', '1', 'uni/uni_upv.jpg', 'https://www.upv.es/titulaciones/GII/', '2016-11-29 23:54:37', '::1');
 
 --
 -- Índices para tablas volcadas

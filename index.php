@@ -19,7 +19,7 @@ include 'php/head.php';
 			<div class="row">
 				<div class="col-md-4 col-md-push-4">
     				<?php echo('<a target="_blank" href="' . $_SESSION['linkuniversidad'] . '" class="thumbnail">'); ?>
-      				<?php echo('<img src="' . $_SESSION['imagen'] . '" alt="logo_universidad">'); ?>
+      				<?php echo('<img src="' . $_SESSION['imagen'] . '" alt="logo_universidad" style="height:300px; width:300px;"">'); ?>
     				</a>
   				</div>
 	  		</div>
