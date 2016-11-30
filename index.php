@@ -6,7 +6,7 @@ include 'php/head.php';
 <body>
 <?php include 'php/header.php'; ?>
 <div class="container-fluid">
-	<div class="text-center" style="height:80%;">
+	<div class="text-center">
 		<h1>Plataforma de Votos</h1><br><br>
 	  	<div class="row">
 			<?php 

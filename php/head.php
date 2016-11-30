@@ -14,6 +14,8 @@
     <title>Acerca de</title>
     <?php } else if($_POST['pagina'] == "login") { ?>
     <title>Login</title>
+    <?php } else if($_POST['pagina'] == "configuracion") { ?>
+    <title>Configuración</title>
     <?php } ?>
 	<link rel="icon" type="image/png" href="img/logo.png">
     <link rel='stylesheet' type='text/css' href='css/bootstrap.css' />
